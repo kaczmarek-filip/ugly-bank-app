@@ -1,1 +1,10 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/op7TPDsl)
+### Bank
+
+## Strona banku z formularzem logowania, kilkoma wcześniej stworzonymi kontami dostępem do podstawowych usług.
+
+1. Obsługiwany formularz logowania i rejestracji
+   1. Połączenie z bazą danych
+   2. Formuły sprawdzające poprawność hasła
+2. Możliwość sprawdzenia bieżącego stanu konta
+3. Możliwość wykonania przelewu na inne konto
+4. Możliwość realizacji wypłat i wpłat
