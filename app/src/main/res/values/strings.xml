@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bank</string>
+    <string name="MainActivity_toolbar">Kaczmarski Bank</string>
+    <string name="MainActivity_welcome">Witamy w aplikacji banku!</string>
+    <string name="MainActivity_button_login">Zaloguj się!</string>
+    <string name="MainActivity_button_signIn">Zarejestruj się!</string>
+    <string name="MainActivity_welcome_login">Logowanie</string>
+    <string name="MainActivity_welcome_signIn">Rejestracja</string>
+</resources>
