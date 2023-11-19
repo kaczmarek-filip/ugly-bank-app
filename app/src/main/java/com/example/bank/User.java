@@ -4,6 +4,7 @@ public class User {
     private final String login;
     private final String password;
     private double balance;
+    private double deposit;
 
     public User(String login, String password){
         this.login = login;
@@ -24,5 +25,13 @@ public class User {
 
     public String getBalance() {
         return String.valueOf(balance);
+    }
+
+    public String getDeposit() {
+        return String.valueOf(deposit);
+    }
+
+    public void setDeposit(double deposit) {
+        this.deposit += deposit;
     }
 }

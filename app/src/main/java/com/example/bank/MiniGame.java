@@ -63,7 +63,7 @@ public class MiniGame extends AppCompatActivity {
         String login = getIntent().getStringExtra("login");
         TextView textTemp = (TextView) findViewById(R.id.textTemp);
 
-        textTemp.setText(authenticateUser(login).getBalance());
+        textTemp.setText("$ "+ authenticateUser(login).getBalance());
 
 
         Button buttonEarn = (Button) findViewById(R.id.buttonEarn);
