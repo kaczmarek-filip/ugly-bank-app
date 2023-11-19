@@ -146,7 +146,7 @@ public class MiniGame extends AppCompatActivity {
         if(progress == 10){
             progress = 0;
             authenticateUser(login).setBalance(randomEarnings(200));
-            textTemp.setText(authenticateUser(login).getBalance());
+            textTemp.setText("$ "+ authenticateUser(login).getBalance());
         }
 
 

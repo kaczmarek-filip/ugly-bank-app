@@ -22,6 +22,9 @@ public class User {
     public void setBalance(double balance) {
         this.balance += balance;
     }
+    public void minusBalance(double balance) {
+        this.balance -= balance;
+    }
 
     public String getBalance() {
         return String.valueOf(balance);
@@ -33,5 +36,8 @@ public class User {
 
     public void setDeposit(double deposit) {
         this.deposit += deposit;
+    }
+    public void minusDeposit(double deposit) {
+        this.deposit -= deposit;
     }
 }

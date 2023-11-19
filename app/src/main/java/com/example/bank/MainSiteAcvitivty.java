@@ -54,7 +54,9 @@ public class MainSiteAcvitivty extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        /*
+        Działanie przycisku Mini Gry
+         */
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button buttonMiniGame = (Button) findViewById(R.id.buttonMiniGame);
 
@@ -66,6 +68,19 @@ public class MainSiteAcvitivty extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*
+        Działanie przycisku lokaty
+         */
+        Button buttonInvestment = (Button) findViewById(R.id.buttonInvestment);
+
+        buttonInvestment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainSiteAcvitivty.this, Deposit.class);
+                intent.putExtra("login", login);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -73,12 +88,14 @@ public class MainSiteAcvitivty extends AppCompatActivity {
         super.onStart();
 
         TextView textBalance = (TextView) findViewById(R.id.textBalance);
+        TextView textDeposit = (TextView) findViewById(R.id.textDeposit);
 
         String login = getIntent().getStringExtra("login");
 
         try{
             //TODO: wypisać saldo konkretnego użytkownika
             textBalance.setText("$ " + authenticateUser(login).getBalance());
+            textDeposit.setText("$ " + authenticateUser(login).getDeposit());
         } catch (Exception e){
             e.printStackTrace();
         }
