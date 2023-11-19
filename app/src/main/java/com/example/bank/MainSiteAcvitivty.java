@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,19 @@ public class MainSiteAcvitivty extends AppCompatActivity {
         String login = getIntent().getStringExtra("login");
 
         textMainSiteWelcome.setText("Witaj " + login + "!");
+
+        /*
+        Działanie przycisku BLIK
+         */
+        Button buttonBlik = (Button) findViewById(R.id.buttonBlik);
+
+        buttonBlik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainSiteAcvitivty.this, Blik.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
