@@ -18,6 +18,9 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *
+ */
 public class Blik extends AppCompatActivity {
     Timer timer;
     ProgressBar progressBar;
