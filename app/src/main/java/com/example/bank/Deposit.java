@@ -33,6 +33,9 @@ public class Deposit extends AppCompatActivity {
         textBalance.setText("$ " + authenticateUser(login).getBalance());
         textDeposit.setText("$ " + authenticateUser(login).getDeposit());
 
+        /*
+        Listener opisujący dzialanie przycisku "Na lokate"
+         */
         buttonOnDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +60,9 @@ public class Deposit extends AppCompatActivity {
 
             }
         });
-
+        /*
+        Listener opisujący dzialanie przycisku "Na konto"
+         */
         buttonOnBalance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
