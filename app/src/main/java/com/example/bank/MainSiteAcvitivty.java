@@ -1,5 +1,8 @@
 package com.example.bank;
 
+import static com.example.bank.ManageUser.authenticateUser;
+import static com.example.bank.ManageUser.users;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -35,6 +38,10 @@ public class MainSiteAcvitivty extends AppCompatActivity {
 
         textMainSiteWelcome.setText("Witaj " + login + "!");
 
+
+
+
+
         /*
         Działanie przycisku BLIK
          */
@@ -47,6 +54,33 @@ public class MainSiteAcvitivty extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        Button buttonMiniGame = (Button) findViewById(R.id.buttonMiniGame);
+
+        buttonMiniGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainSiteAcvitivty.this, MiniGame.class);
+                intent.putExtra("login", login);
+                startActivity(intent);
+            }
+        });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        TextView textBalance = (TextView) findViewById(R.id.textBalance);
+
+        String login = getIntent().getStringExtra("login");
+
+        try{
+            //TODO: wypisać saldo konkretnego użytkownika
+            textBalance.setText("$ " + authenticateUser(login).getBalance());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

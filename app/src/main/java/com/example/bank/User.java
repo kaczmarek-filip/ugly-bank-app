@@ -17,4 +17,12 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public void setBalance(double balance) {
+        this.balance += balance;
+    }
+
+    public String getBalance() {
+        return String.valueOf(balance);
+    }
 }

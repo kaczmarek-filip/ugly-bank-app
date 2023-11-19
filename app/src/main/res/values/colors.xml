@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main">#009688</color>
     <color name="main2">#03A9F4</color>
+    <color name="earningButtonColor">#FF5722</color>
 </resources>
