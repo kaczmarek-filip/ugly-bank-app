@@ -81,6 +81,19 @@ public class MainSiteAcvitivty extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*
+        Działanie przycisku przelewy
+         */
+        Button buttonTransfer = (Button) findViewById(R.id.buttonTransfer);
+
+        buttonTransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainSiteAcvitivty.this, Transfer.class);
+                intent.putExtra("login", login);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -22,4 +22,11 @@ public class ManageUser {
         // Zwróć null, jeśli użytkownik o podanym loginie i haśle nie został znaleziony
         return null;
     }
+    public static List<String> getUsersLogin() {
+        List<String> usersLogins = new ArrayList<>();
+        for (User user : users) {
+            usersLogins.add(user.getLogin());
+        }
+        return usersLogins;
+    }
 }
