@@ -2,7 +2,6 @@ package com.example.bank;
 
 import java.util.ArrayList;
 import java.util.List;
-//TODO: Dodać warunek, że loginy nie mogą się powtarzać
 public class ManageUser {
     public static List<User> users = new ArrayList<>();
 

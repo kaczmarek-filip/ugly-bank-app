@@ -26,6 +26,14 @@ public class SignInPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_page);
 
+        EditText textSignInLogin = (EditText) findViewById(R.id.textSignInLogin);
+        EditText textSignInPassword = (EditText) findViewById(R.id.textSignInPassword);
+        EditText textSignInPassword2 = (EditText) findViewById(R.id.textSignInPassword2);
+
+        textSignInLogin.setHint("Login");
+        textSignInPassword.setHint("Hasło");
+        textSignInPassword2.setHint("Powtórz hasło");
+
 
         Button buttonSignInSubmit = (Button) findViewById(R.id.buttonSignInSubmit);
         buttonSignInSubmit.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +60,15 @@ public class SignInPage extends AppCompatActivity {
                     Toast.makeText(SignInPage.this, "Hasło musi zawierać min. 8 znaków", Toast.LENGTH_SHORT).show();
                 } else if (!password.equals(password2)) {
                     Toast.makeText(SignInPage.this, "Hasła nie są sobie równe", Toast.LENGTH_SHORT).show();
-                } //TODO: dodać więcej warunków
-                else {
+                } else if (isUpper(password)) {
+                    Toast.makeText(SignInPage.this, "Hasło musi mieć min. 1 wielką literę", Toast.LENGTH_SHORT).show();
+                } else if (isLower(password)) {
+                    Toast.makeText(SignInPage.this, "Hasło musi mieć min. 1 małą literę", Toast.LENGTH_SHORT).show();
+                } else if (isDigit(password)) {
+                    Toast.makeText(SignInPage.this, "Hasło musi mieć min. 1 cyfrę", Toast.LENGTH_SHORT).show();
+                } else if (isLetter(password)) {
+                    Toast.makeText(SignInPage.this, "Hasło musi zawierać litery", Toast.LENGTH_SHORT).show();
+                } else {
                     /*
                      * Jeśli hasło spełnia wymagania:
                      * 1. Wyświetl komunikat o poprawności danych
@@ -82,7 +97,6 @@ public class SignInPage extends AppCompatActivity {
             }
         });
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button buttonSwitchToLogin = (Button) findViewById(R.id.buttonSwitchToLogin);
         buttonSwitchToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,5 +106,54 @@ public class SignInPage extends AppCompatActivity {
             }
         });
 
+    }
+
+    /**
+     * @param password Hasło użytkownika
+     * @return Zwraca prawdę, jeśli haslo zawiera wielką literę
+     */
+    boolean isUpper(String password){
+        for (char character : password.toCharArray()) {
+            if (Character.isUpperCase(character)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * @param password Hasło użytkownika
+     * @return Zwraca prawdę, jeśli haslo zawiera małą literę
+     */
+    boolean isLower(String password){
+        for (char character : password.toCharArray()) {
+            if (Character.isLowerCase(character)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * @param password Hasło użytkownika
+     * @return Zwraca prawdę, jeśli haslo zawiera jakąkolwiek literę
+     */
+    boolean isLetter(String password){
+        for (char character : password.toCharArray()) {
+            if (Character.isLetter(character)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /**
+     * @param password Hasło użytkownika
+     * @return Zwraca prawdę, jeśli haslo zawiera cyfrę
+     */
+    boolean isDigit(String password){
+        for (char character : password.toCharArray()) {
+            if (Character.isDigit(character)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

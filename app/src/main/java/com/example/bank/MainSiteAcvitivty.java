@@ -94,6 +94,19 @@ public class MainSiteAcvitivty extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*
+        Działanie przycisku kart
+         */
+        Button buttonCards = (Button) findViewById(R.id.buttonCards);
+
+        buttonCards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainSiteAcvitivty.this, Cards.class);
+                intent.putExtra("login", login);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -106,7 +119,6 @@ public class MainSiteAcvitivty extends AppCompatActivity {
         String login = getIntent().getStringExtra("login");
 
         try{
-            //TODO: wypisać saldo konkretnego użytkownika
             textBalance.setText("$ " + authenticateUser(login).getBalance());
             textDeposit.setText("$ " + authenticateUser(login).getDeposit());
         } catch (Exception e){

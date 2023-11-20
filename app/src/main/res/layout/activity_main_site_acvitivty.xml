@@ -136,7 +136,7 @@
         app:layout_constraintVertical_bias="0.849" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonCards"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:backgroundTint="#FF9800"

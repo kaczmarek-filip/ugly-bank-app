@@ -18,9 +18,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//TODO: Gra ma opierać się o zarabianie lub stratę
-// W przypadku w którym nie dojdzie do zwycięstwa, gracz może starcić środki
-// Nie może stracić środków dostępnych na lokacie
 
 public class MiniGame extends AppCompatActivity {
 
