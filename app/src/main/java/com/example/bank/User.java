@@ -5,6 +5,15 @@ import static com.example.bank.Cards.generateCardNumber;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa użytkownika
+ * Zawiera:
+ * 1. Login
+ * 2. Hasło
+ * 3. Saldo
+ * 4. Lokatę
+ * 5. Numer karty
+ */
 public class User {
     private final String login;
     private final String password;
@@ -13,6 +22,13 @@ public class User {
 
     private String cardNumber;
 
+    /**
+     * @param login przyjmuje login użytkownika
+     * @param password przyjmuje hasło użytkownika
+     *
+     * Nadaje losowy numer karty
+     * @see Cards#generateCardNumber()
+     */
     public User(String login, String password){
         this.login = login;
         this.password = password;

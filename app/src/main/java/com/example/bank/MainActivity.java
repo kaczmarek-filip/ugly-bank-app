@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * @author Filip
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
         Button button_login = (Button) findViewById(R.id.buttonLogin);
         Button button_signIn = (Button) findViewById(R.id.buttonSignIn);
 
-        /**
+        /*
          * Stworzenie testowego użytkownika
          * Login: test
          * Hasło: test1234
          */
-        User newUser = new User("test", "test1234");
-        ManageUser.addUser(newUser);
+//        User newUser = new User("test", "test1234");
+//        ManageUser.addUser(newUser);
 
-        /**
+        /*
          * Obsługa przycisku "Zaloguj się"
          */
         button_login.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /**
+        /*
          * Obsługa przycisku "Zarejestruj się"
          */
         button_signIn.setOnClickListener(new View.OnClickListener() {

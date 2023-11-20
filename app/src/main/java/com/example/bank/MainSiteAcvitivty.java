@@ -15,9 +15,15 @@ import android.widget.Toast;
 
 import java.time.Duration;
 import java.time.LocalTime;
-
+/**
+ * Klasa odpowiada za funcjonowanie Activity strony głównej
+ * Główne zadanie to przyjęcie loginu użytkownika i przekierowania do podstron
+ */
 public class MainSiteAcvitivty extends AppCompatActivity {
 
+    /**
+     * Jeśli użytkownik wciśnie przycisk wstecz zostanie wylogowany
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -31,7 +37,6 @@ public class MainSiteAcvitivty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_site_acvitivty);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TextView textMainSiteWelcome = (TextView) findViewById(R.id.textMainSiteWelcome);
 
         String login = getIntent().getStringExtra("login");
@@ -109,6 +114,9 @@ public class MainSiteAcvitivty extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metoda przy uruchomieniu Activity pobiera aktualne saldo i lokatę użytkownika
+     */
     @Override
     protected void onStart() {
         super.onStart();

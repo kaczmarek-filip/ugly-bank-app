@@ -68,7 +68,10 @@ public class SignInPage extends AppCompatActivity {
                     Toast.makeText(SignInPage.this, "Hasło musi mieć min. 1 cyfrę", Toast.LENGTH_SHORT).show();
                 } else if (isLetter(password)) {
                     Toast.makeText(SignInPage.this, "Hasło musi zawierać litery", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if (login.equals("")) {
+                    Toast.makeText(SignInPage.this, "Podaj login", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     /*
                      * Jeśli hasło spełnia wymagania:
                      * 1. Wyświetl komunikat o poprawności danych
@@ -77,18 +80,24 @@ public class SignInPage extends AppCompatActivity {
                      * 4. Stwórz użytkownika z podanych danych
                      * 5. Sprawdź czy login nie jest już używany
                      */
-                    for(User user : users){
-                        if(login.equals(user.getLogin())){
-                            Toast.makeText(SignInPage.this, "Użytkownik o podanym loginie już istnieje", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Intent intent = new Intent(SignInPage.this, LoginPage.class);
-                            Toast.makeText(SignInPage.this, "Dane są poprawne", Toast.LENGTH_SHORT).show();
-                            intent.putExtra("login", login);
-                            intent.putExtra("password", password);
-                            startActivity(intent);
-                            User newUser = new User(login, password);
-                            ManageUser.addUser(newUser);
+                    boolean isLoginTaken = false;
+
+                    for (User user : users) {
+                        if (login.equals(user.getLogin())) {
+                            isLoginTaken = true;
+                            break;
                         }
+                    }
+                    if (isLoginTaken) {
+                        Toast.makeText(SignInPage.this, "Istnieje już użytkownik o podanym loginie", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(SignInPage.this, LoginPage.class);
+                        Toast.makeText(SignInPage.this, "Dane są poprawne", Toast.LENGTH_SHORT).show();
+                        intent.putExtra("login", login);
+                        intent.putExtra("password", password);
+                        startActivity(intent);
+                        User newUser = new User(login, password);
+                        ManageUser.addUser(newUser);
                     }
 
                 }
@@ -96,6 +105,10 @@ public class SignInPage extends AppCompatActivity {
 
             }
         });
+
+        /*
+        Obsługuje przycisk przejścia do strony logowania
+         */
 
         Button buttonSwitchToLogin = (Button) findViewById(R.id.buttonSwitchToLogin);
         buttonSwitchToLogin.setOnClickListener(new View.OnClickListener() {

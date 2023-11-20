@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/**
+ * Klasa odpowiada za funcjonowanie Activity strony logowania
+ */
 public class LoginPage extends AppCompatActivity {
 
     @Override
@@ -26,28 +29,31 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        /*
+        Pobranie wartości pól
+         */
         EditText textLogin = (EditText) findViewById(R.id.textLoginLogin);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         EditText textPassword = (EditText) findViewById(R.id.textLoginPassword);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button buttonLoginSubmit = (Button) findViewById(R.id.buttonLoginSubmit);
-
+        /*
+        Jeśli nastąpiło przekierowanie ze strony rejestracji - uzupełnij pola danymi z rejestracji
+         */
         String loginFromSignIn = getIntent().getStringExtra("login");
         String passwordFromSignIn = getIntent().getStringExtra("password");
-
         if(loginFromSignIn != null && passwordFromSignIn != null){
             textLogin.setText(loginFromSignIn);
             textPassword.setText(passwordFromSignIn);
         }
-
+        /*
+        Obsługa przycisku logowania
+         */
         buttonLoginSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String login = textLogin.getText().toString();
                 String password = textPassword.getText().toString();
 
-                /**
+                /*
                  * Tworzenie listy użytkowników
                  * userFound - zmienna informująca o tym czy użytkownik jest w bazie danych czy nie.
                  */
@@ -59,8 +65,8 @@ public class LoginPage extends AppCompatActivity {
                         break;
                     }
                 }
-                /**
-                 * Jeżeli użytkownik znajduje się w bazie danych:
+                /*
+                 * Jeżeli użytkownik istnieje:
                  * 1. Nadaj o tym komunikat
                  * 2. Przejdź do strony głównej
                  * 3. Prześlij do strony głównej login użytkownika
@@ -77,8 +83,9 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
-
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+        /*
+        Obsluga przycisku przenoszącego do strony rejestracji
+         */
         Button buttonSwitchToSignIn = (Button) findViewById(R.id.buttonSwitchToSignIn);
         buttonSwitchToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

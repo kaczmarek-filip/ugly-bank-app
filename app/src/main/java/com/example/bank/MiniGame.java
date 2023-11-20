@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Klasa służy do obsługi minigry
+ */
 public class MiniGame extends AppCompatActivity {
 
     /**
-     * @param savedInstanceState If the activity is being re-initialized after
-     *                           previously being shut down then this Bundle contains the data it most
-     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
      *
      * Metoda pobiera przyciski z mini gry i ukrywa je razem z progresem gry
      */

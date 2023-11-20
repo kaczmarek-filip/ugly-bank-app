@@ -21,6 +21,9 @@ import android.widget.Toolbar;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Klasa odpowiada za funcjonowanie Activity Karty
+ */
 public class Cards extends AppCompatActivity {
 
     @Override
@@ -29,7 +32,9 @@ public class Cards extends AppCompatActivity {
         setContentView(R.layout.activity_cards);
 
         TextView textCardNumber = findViewById(R.id.textCardNumber);
-
+        /*
+        Pobieranie loginu użytkownika
+         */
         String login = getIntent().getStringExtra("login");
 
         textCardNumber.setText(authenticateUser(login).getCardNumber());
@@ -44,6 +49,9 @@ public class Cards extends AppCompatActivity {
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 input.setHint("Wprowadź numer karty");
 
+                /*
+                Po wciśnięciu przycisku, otwiera się okno dialogowe
+                 */
                 AlertDialog alertDialog = new AlertDialog.Builder(Cards.this)
                         .setTitle("Dodaj kartę")
                         .setMessage("Numer karty musi zawierać 18 cyfr")
@@ -55,8 +63,11 @@ public class Cards extends AppCompatActivity {
                                 if(input.getText().toString().length() != 18){
                                     Toast.makeText(Cards.this, "Numer karty powinien zawierać 18 znaków", Toast.LENGTH_SHORT).show();
                                 } else {
-//                                    editCardNumber(input.getText().toString(), textCardNumber);
-//                                    newCardNumber(input.getText().toString());
+                                    /*
+                                    Jeśli wpisanych przez użytkownika cyfr jest 18 następuje:
+                                    Aktualizacja numeru karty na ekranie
+                                    Aktualizacja numeru karty w obiekcie User
+                                     */
                                     textCardNumber.setText(newCardNumber(input.getText().toString()));
                                     authenticateUser(login).setCardNumber(newCardNumber(input.getText().toString()));
                                 }
@@ -73,6 +84,12 @@ public class Cards extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Metoda odpowiadająca za wygenerowanie losowego ciągu cyfr i ułóżenie go w formie numeru karty
+     * XX XXXX XXXX XXXX XXXX
+     * @return Zwraca String w powyższym formacie
+     */
     public static String generateCardNumber(){
 
         StringBuilder cardNumber = new StringBuilder();
@@ -88,6 +105,11 @@ public class Cards extends AppCompatActivity {
         }
         return cardNumber.toString();
     }
+
+    /**
+     * @param newCardNumber Przyjmuje numer wpisany przez użytkownika
+     * @return Zwraca numer karty ułożony w formacie XX XXXX XXXX XXXX XXXX
+     */
     String newCardNumber(String newCardNumber){
 
         StringBuilder cardNumber = new StringBuilder();

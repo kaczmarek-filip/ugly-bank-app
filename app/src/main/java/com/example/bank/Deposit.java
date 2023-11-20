@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Klasa odpowiada za funcjonowanie Activity Lokata
+ */
 public class Deposit extends AppCompatActivity {
 
     @Override
@@ -19,6 +22,12 @@ public class Deposit extends AppCompatActivity {
         setContentView(R.layout.activity_deposit);
     }
 
+    /**
+     * Podczas uruchomienia Activity następuje:
+     * 1. Pobieranie wartości pól
+     * 2. Pobranie loginu zalogowanego użytkownika
+     * 3. Pobranie stanu konta i lokaty użytkownika
+     */
     @Override
     protected void onStart() {
         super.onStart();

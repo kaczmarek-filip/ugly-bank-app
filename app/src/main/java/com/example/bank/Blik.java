@@ -19,7 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
+ * Klasa odpowiada za funcjonowanie Activity BLIK
  */
 public class Blik extends AppCompatActivity {
     Timer timer;
