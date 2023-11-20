@@ -13,7 +13,7 @@
 3. Możliwość wykonania przelewu na inne konto
 4. Możliwość zarabiania poprzez mini grę
 5. Imitacja systemu BLIK
-   6. Losowo generowany kod BLIK co 30 sekund
-   7. Możliwość odświeżenia kodu
+   Losowo generowany kod BLIK co 30 sekund
+   Możliwość odświeżenia kodu
 6. Możliwość przelania środków na lokatę
 7. Możliwość sprawdzenia i zaktualizowania numeru karty
