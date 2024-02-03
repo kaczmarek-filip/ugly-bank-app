@@ -1,6 +1,6 @@
 package com.example.bank;
 
-import static com.example.bank.Cards.generateCardNumber;
+import static com.example.bank.CardsNewNumber.generateCardNumber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class User {
      * @param password przyjmuje hasło użytkownika
      *
      * Nadaje losowy numer karty
-     * @see Cards#generateCardNumber()
+     * @see CardsNewNumber#generateCardNumber()
      */
     public User(String login, String password){
         this.login = login;

@@ -12,6 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import jakarta.json.JsonObject;
+
 public class SignInPage extends AppCompatActivity {
 
     @Override
@@ -33,6 +40,11 @@ public class SignInPage extends AppCompatActivity {
         textSignInLogin.setHint("Login");
         textSignInPassword.setHint("Hasło");
         textSignInPassword2.setHint("Powtórz hasło");
+
+
+        // TODO: Usunąć
+        textSignInPassword.setText("12345678aA");
+        textSignInPassword2.setText("12345678aA");
 
 
         Button buttonSignInSubmit = (Button) findViewById(R.id.buttonSignInSubmit);
@@ -98,6 +110,13 @@ public class SignInPage extends AppCompatActivity {
                         startActivity(intent);
                         User newUser = new User(login, password);
                         ManageUser.addUser(newUser);
+
+                        /*
+                        Dodanie użytkownika do bazy danych
+                         */
+                        DatabaseConnection databaseConnection = new DatabaseConnection();
+                        databaseConnection.save(newUser);
+
                     }
 
                 }

@@ -1,5 +1,7 @@
 package com.example.bank;
 
+import static com.example.bank.BlikGenerateCode.generateCode;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -46,7 +48,7 @@ public class Blik extends AppCompatActivity {
 
     /**
      * Metoda odpowiedzalna za umieszczenie stworzonego w generateCode() kodu w odpowiednim miejscu
-     * @see Blik#generateCode()
+     * @see BlikGenerateCode
      */
     void setCode(){
         TextView textBlikCode = (TextView) findViewById(R.id.textBlikCode);
@@ -59,21 +61,21 @@ public class Blik extends AppCompatActivity {
      * Przykład:
      * XXX XXX
      */
-    static String generateCode(){
-        StringBuilder code = new StringBuilder();
-        for(int i = 0; i < 6; i++){
-            Random random = new Random();
-            int randInt = random.nextInt(10);
-            code.append(randInt);
-
-            if(i == 2){
-                code.append(" ");
-            }
-        }
-
-
-        return code.toString();
-    }
+//    static String generateCode(){
+//        StringBuilder code = new StringBuilder();
+//        for(int i = 0; i < 6; i++){
+//            Random random = new Random();
+//            int randInt = random.nextInt(10);
+//            code.append(randInt);
+//
+//            if(i == 2){
+//                code.append(" ");
+//            }
+//        }
+//
+//
+//        return code.toString();
+//    }
 
     /**
      * Metoda odpowiedzialna za rozpoczęcie pracy progressBara
