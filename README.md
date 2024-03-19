@@ -17,3 +17,5 @@
    2. Możliwość odświeżenia kodu
 6. Możliwość przelania środków na lokatę
 7. Możliwość sprawdzenia i zaktualizowania numeru karty
+
+# Projekt tworzony w ramach projektu zaliczeniowego na uczelni
